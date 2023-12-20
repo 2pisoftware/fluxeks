@@ -7,9 +7,9 @@
             }
         }
     },
+    "postCreateCommand": "curl -s https://fluxcd.io/install.sh | sudo bash",
     "features": {
         "ghcr.io/devcontainers/features/aws-cli:1": {},
-        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/flux:1": {}
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}
     }
   }
