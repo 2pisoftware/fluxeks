@@ -1,0 +1,13 @@
+FROM alpine:latest
+
+# Install ZSH, Oh my zsh
+RUN apk add --no-cache zsh && \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install fluxcd, aws-cli
+RUN apk add --no-cache curl bash git openssh-client && \
+    curl -s https://fluxcd.io/install.sh | bash && \
+    curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf awscliv2.zip aws
