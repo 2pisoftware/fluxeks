@@ -1,6 +1,6 @@
 {
-    "name": "Alpine",
+    "name": "Fedora",
     "build": {
-        "dockerfile": "Dockerfile",
+        "dockerfile": "dockerfile",
     },
 }

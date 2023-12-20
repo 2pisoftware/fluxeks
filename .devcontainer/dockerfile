@@ -1,13 +1,21 @@
-FROM alpine:latest
+FROM fedora:latest
 
 # Install ZSH, Oh my zsh
-RUN apk add --no-cache zsh && \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN dnf install -y zsh util-linux-user git wget curl which
 
-# Install fluxcd, aws-cli
-RUN apk add --no-cache curl bash git openssh-client && \
-    curl -s https://fluxcd.io/install.sh | bash && \
-    curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    ./aws/install && \
-    rm -rf awscliv2.zip aws
+# Install NodeJS, NPM from DNF
+RUN dnf install -y nodejs npm
+
+# Install AWS-CLI
+RUN dnf install -y awscli
+
+# Install AWS-CDK
+RUN npm install -g aws-cdk
+
+# Install FluxCD
+RUN curl -s https://fluxcd.io/install.sh | bash
+
+# Install Kubectl
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" &&\
+    mv kubectl /usr/local/bin/kubectl &&\
+    chmod +x /usr/local/bin/kubectl
