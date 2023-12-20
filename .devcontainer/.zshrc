@@ -102,6 +102,3 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:~/.local/bin
 export EDITOR="micro"
 export PAGER="bat"
-
-# Remove hostname in terminal
-DEFAULT_USER="$(whoami)"
