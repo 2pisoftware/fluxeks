@@ -3,5 +3,12 @@
     "build": {
         "dockerfile": "dockerfile",
         "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": { 
+                "workbench.colorTheme": "Default Dark+" 
+            }
+        }
     }
 }

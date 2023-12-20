@@ -70,7 +70,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl docker fluxcd)
+plugins=(git kubectl docker fluxcd aws helm)
 
 source $ZSH/oh-my-zsh.sh
 
