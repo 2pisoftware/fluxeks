@@ -7,7 +7,9 @@
     "customizations": {
         "vscode": {
             "settings": { 
-                "workbench.colorTheme": "Default Dark+" 
+                "workbench.colorTheme": "Default Dark+",
+                //zsh
+                "terminal.integrated.shell.linux": "/bin/zsh"
             }
         }
     }
