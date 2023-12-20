@@ -11,7 +11,8 @@ RUN dnf install -y \
     nodejs npm \
     awscli \
     bat \
-    micro
+    micro \
+    helm
 
 # Install AWS-CDK
 RUN npm install -g aws-cdk
@@ -24,6 +25,15 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
     mv kubectl /usr/local/bin/kubectl &&\
     chmod +x /usr/local/bin/kubectl
 
+# Create user
+RUN useradd -ms /bin/zsh dev
+
+# Enable sudo access for dev
+RUN echo "dev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Change to dev
+USER dev
+
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-COPY .zshrc /root/.zshrc
+COPY --chown=dev:dev .zshrc /home/dev/.zshrc

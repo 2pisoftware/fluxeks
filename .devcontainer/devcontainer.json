@@ -1,5 +1,5 @@
 {
-    "name": "Fedora",
+    "name": "fedora",
     "build": {
         "dockerfile": "dockerfile",
         "context": "."
@@ -10,7 +10,11 @@
                 "workbench.colorTheme": "Default Dark+",
                 //zsh
                 "terminal.integrated.shell.linux": "/bin/zsh"
-            }
+            },
+            "extensions": [
+                //Copilot
+                "github.copilot"
+            ]
         }
     }
 }
