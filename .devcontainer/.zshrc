@@ -102,3 +102,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:~/.local/bin
 export EDITOR="micro"
 export PAGER="bat"
+export SHOW_AWS_PROMPT=false # already displays on the right
+
+prompt_context() {
+  if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black white "%(!.%{%F{yellow}%}.)%m $"
+  fi
+}
