@@ -102,6 +102,11 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:~/.local/bin
 export EDITOR="micro"
 export PAGER="bat"
+RPROMPT='$(aws_prompt_info)'"$RPROMPT" # show on the right
+export SHOW_AWS_PROMPT=false # disable the left prompt
 
-# Remove hostname in terminal
-DEFAULT_USER="$(whoami)"
+prompt_context() {
+  if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black white "%(!.%{%F{yellow}%}.)%m $"
+  fi
+}
