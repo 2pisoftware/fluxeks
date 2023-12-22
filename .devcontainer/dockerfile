@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM quay.io/toolbx-images/fedora-toolbox:40
 
 # Install dnf packages
 RUN dnf install -y \
@@ -37,3 +37,17 @@ USER dev
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY --chown=dev:dev .zshrc /home/dev/.zshrc
+
+# Create ~/.local/bin and add it to PATH
+RUN mkdir -p /home/dev/.local/bin
+ENV PATH="/home/dev/.local/bin:${PATH}"
+
+# Install kuztomize
+RUN cd ~/.local/bin &&\
+    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+
+# Add kustomize zsh completions
+RUN mkdir -p ~/.oh-my-zsh/completions &&\
+    kustomize completion zsh > ~/.oh-my-zsh/completions/_kustomize
+
+WORKDIR /home/dev
