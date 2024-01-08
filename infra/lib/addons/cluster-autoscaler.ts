@@ -61,7 +61,7 @@ export class ClusterAutoscaler extends Construct {
     });
 
     const chart = props.cluster.addHelmChart('CAHelm', {
-      chart: 'cluster-autoscaler-chart',
+      chart: 'cluster-autoscaler',
       release: 'ca',
       repository: 'https://kubernetes.github.io/autoscaler',
       namespace: this.namespace,
