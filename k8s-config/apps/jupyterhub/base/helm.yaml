@@ -16,10 +16,5 @@ spec:
 # change the port to 8000
   values:
     proxy:
-      service:
-        ports:
-          http:
-            type: LoadBalancer
-            nodePorts:
-            http: 80
-            https: 443
+      https:
+        enabled: true
