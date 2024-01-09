@@ -13,3 +13,13 @@ spec:
         kind: HelmRepository
         name: jupyterhub
   interval: 1m0s
+# change the port to 8000
+  values:
+    proxy:
+      service:
+        ports:
+          http:
+            type: NodePort
+            nodePort: 30081
+            port: 8000
+            targetPort: 8000
