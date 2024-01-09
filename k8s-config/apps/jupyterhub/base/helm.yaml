@@ -16,6 +16,6 @@ spec:
   values:
     proxy:
     service:
-      type: NodePort
+      type: LoadBalancer
       nodePorts:
         http: 30080
