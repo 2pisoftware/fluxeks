@@ -32,9 +32,9 @@ export class InfraStack extends Stack {
       defaultCapacity: 0,
       kubectlLayer: new kctl.KubectlV28Layer(this, 'KubectlLayer'),
       mastersRole: role,
-      // albController: {
-      //   version: eks.AlbControllerVersion.V2_6_2,
-      // },
+      albController: {
+        version: eks.AlbControllerVersion.V2_6_2,
+      },
     });
 
 
