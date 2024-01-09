@@ -13,8 +13,3 @@ spec:
         kind: HelmRepository
         name: jupyterhub
   interval: 1m0s
-# change the port to 8000
-  values:
-    proxy:
-      https:
-        enabled: true
