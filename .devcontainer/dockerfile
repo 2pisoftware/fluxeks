@@ -12,7 +12,8 @@ RUN dnf install -y \
     awscli \
     bat \
     micro \
-    helm
+    helm \
+    gh
 
 # Install AWS-CDK
 RUN npm install -g aws-cdk
