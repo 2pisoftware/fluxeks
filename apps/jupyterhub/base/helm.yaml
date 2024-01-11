@@ -12,6 +12,11 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: jupyterhub
-      valuesFiles:
-      - config.yaml
   interval: 1m0s
+  values:
+    proxy:
+      service:
+        annotations:
+          "alb.ingress.kubernetes.io/scheme": internet-facing
+          "alb.ingress.kubernetes.io/target-type": ip
+          "kubernetes.io/ingress.class": alb
