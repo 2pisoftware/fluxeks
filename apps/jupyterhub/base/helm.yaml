@@ -12,6 +12,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: jupyterhub
-      valuesFiles:
-        - config.yaml
+      valuesFrom:
+      - kind: ConfigMap
+        name: values
+        valuesKey: config.yaml
   interval: 1m0s
