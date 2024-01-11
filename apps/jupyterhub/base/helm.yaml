@@ -13,9 +13,3 @@ spec:
         kind: HelmRepository
         name: jupyterhub
   interval: 1m0s
-  values:
-    proxy:
-    service:
-      type: LoadBalancer
-      nodePorts:
-        http: 8000
