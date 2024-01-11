@@ -1,0 +1,5 @@
+hub:
+  ingress:
+    annotations:
+      "service.beta.kubernetes.io/aws-load-balancer-type": "alb"
+      "service.beta.kubernetes.io/aws-load-balancer-backend-protocol": "http"
