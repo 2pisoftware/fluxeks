@@ -1,6 +1,6 @@
 proxy:
   service:
     annotations:
-      "service.beta.kubernetes.io/aws-load-balancer-type": "alb"
-      "service.beta.kubernetes.io/aws-load-balancer-backend-protocol": "http"
+      "alb.ingress.kubernetes.io/scheme": internet-facing
+      "alb.ingress.kubernetes.io/target-type": ip
       "kubernetes.io/ingress.class": alb
