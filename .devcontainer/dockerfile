@@ -59,4 +59,9 @@ RUN cd ~/.local/bin &&\
     curl -L https://github.com/kubernetes/kompose/releases/download/v1.31.2/kompose-linux-amd64 -o kompose &&\
     chmod +x kompose
 
+# Install botkube
+RUN cd ~/.local/bin &&\ 
+    curl -L https://github.com/kubeshop/botkube/releases/download/v1.7.0/botkube-linux-amd64 -o botkube &&\
+    chmod +x botkube
+
 WORKDIR /home/dev

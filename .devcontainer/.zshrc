@@ -112,3 +112,4 @@ prompt_context() {
 }
 
 source <(kompose completion zsh)
+source <(botkube completion zsh)
