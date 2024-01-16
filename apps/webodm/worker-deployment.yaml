@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: worker
+  name: worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: worker
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/webodm-default: "true"
+        io.kompose.service: worker
+    spec:
+      containers:
+        - command:
+            - /bin/bash
+            - -c
+            - /webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 broker:6379 -- /webodm/wait-for-it.sh -t 0 webapp:8000 -- /webodm/worker.sh start
+          image: opendronemap/webodm_webapp
+          name: worker
+          resources: {}
+          volumeMounts:
+            - mountPath: /webodm/app/media
+              name: appmedia
+      restartPolicy: Always
+      volumes:
+        - name: appmedia
+          persistentVolumeClaim:
+            claimName: appmedia
+status: {}
