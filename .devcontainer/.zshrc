@@ -110,3 +110,5 @@ prompt_context() {
     prompt_segment black white "%(!.%{%F{yellow}%}.)%m $"
   fi
 }
+
+source <(kompose completion zsh)

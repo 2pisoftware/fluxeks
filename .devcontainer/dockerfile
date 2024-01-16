@@ -54,4 +54,9 @@ RUN cd ~/.local/bin &&\
 RUN mkdir -p ~/.oh-my-zsh/completions &&\
     kustomize completion zsh > ~/.oh-my-zsh/completions/_kustomize
 
+# Install kompose
+RUN cd ~/.local/bin &&\
+    curl -L https://github.com/kubernetes/kompose/releases/download/v1.31.2/kompose-linux-amd64 -o kompose &&\
+    chmod +x kompose
+
 WORKDIR /home/dev
