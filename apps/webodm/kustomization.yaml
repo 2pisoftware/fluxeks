@@ -1,12 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - appmedia-persistentvolumeclaim.yaml
-  - broker-deployment.yaml
-  - db-deployment.yaml
-  - db-service.yaml
-  - dbdata-persistentvolumeclaim.yaml
-  - webapp-deployment.yaml
-  - webapp-service.yaml
-  - worker-deployment.yaml
-  - namespace.yaml
+  - ./webodm-db-deployment.yaml
+  - ./webodm-db-service.yaml
+  - ./webodm-db-volumes.yaml

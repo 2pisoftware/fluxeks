@@ -1,14 +1,15 @@
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
-  labels:
-    io.kompose.service: appmedia
-  name: appmedia
+  name: data-pvc
+  namespace: webodm
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: gp2
   resources:
     requests:
-      storage: 100Mi
-status: {}
+      storage: 1Gi
+
+---

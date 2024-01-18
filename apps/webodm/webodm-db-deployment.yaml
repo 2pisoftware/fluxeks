@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webodm-db
+  name: webodm-db
+  namespace: webodm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webodm-db
+  template:
+    metadata:
+      labels:
+        app: webodm-db
+    spec:
+      containers:
+        - image: opendronemap/webodm_db:latest
+          name: webodm-db
+          volumeMounts:
+          - name: db-storate
+            mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: db-storage
+        persistentVolumeClaim:
+          claimName: data-pvc
