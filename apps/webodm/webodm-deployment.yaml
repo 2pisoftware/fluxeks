@@ -24,7 +24,7 @@ spec:
           - name: media-storage
             mountPath: /webodm/app/media
             subPath: media
-          environment:
+          env:
           - name: WO_DATABASE_HOST
             value: webodm-db
           - name: WO_BROKER
