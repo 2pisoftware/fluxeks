@@ -4,3 +4,6 @@ resources:
   - ./webodm-db-volumes.yaml
   - ./webodm-db-deployment.yaml
   - ./webodm-db-service.yaml
+  - ./webodm-volumes.yaml
+  - ./webodm-deployment.yaml
+  - ./webodm-service.yaml
