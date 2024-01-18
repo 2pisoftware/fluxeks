@@ -7,3 +7,5 @@ resources:
   - ./webodm-volumes.yaml
   - ./webodm-deployment.yaml
   - ./webodm-service.yaml
+  - ./nodeodm-deployment.yaml
+  - ./nodeodm-service.yaml
