@@ -12,4 +12,4 @@ spec:
       targetPort: 3000
   selector:
     app: nodeodm
-  type: LoadBalancer
+  type: ClusterIP
