@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webodm
+  name: webodm
+  namespace: webodm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webodm
+  template:
+    metadata:
+      labels:
+        app: webodm
+    spec:
+      containers:
+        - image: opendronemap/webodm_webapp:latest
+          name: webodm
+          command: ["/bin/bash"]
+          args: ["-c", "chmod +x /webodm/*.sh && /bin/bash -c \"/webodm/wait-for-postgres.sh webodm-db /webodm/wait-for-it.sh -t 0 broker:6379 -- /webodm/start.sh\""]
+          volumeMounts:
+          - name: media-storage
+            mountPath: /webodm/app/media
+            subPath: media
+        - image: redis:latest
+          name: broker
+      volumes:
+      - name: media-storage
+        persistentVolumeClaim:
+          claimName: media-pvc
