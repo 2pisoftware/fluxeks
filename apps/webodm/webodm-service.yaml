@@ -5,6 +5,9 @@ metadata:
     app: webodm
   name: webodm
   namespace: webodm
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
   ports:
     - port: 80
@@ -13,3 +16,4 @@ spec:
   selector:
     app: webodm
   type: LoadBalancer
+  loadBalancerClass: service.k8s.aws/nlb
