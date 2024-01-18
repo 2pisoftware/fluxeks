@@ -19,7 +19,7 @@ spec:
         - image: opendronemap/webodm_webapp:latest
           name: webodm
           command: ["/bin/bash"]
-          args: ["-c", "chmod +x /webodm/*.sh && /bin/bash -c \"/webodm/wait-for-postgres.sh webodm-db /webodm/wait-for-it.sh -t 0 broker:6379 -- /webodm/start.sh\""]
+          args: ["-c", "chmod +x /webodm/*.sh && /bin/bash -c \"/webodm/wait-for-postgres.sh webodm-db /webodm/wait-for-it.sh -t 0 localhost:6379 -- /webodm/start.sh\""]
           volumeMounts:
           - name: media-storage
             mountPath: /webodm/app/media
