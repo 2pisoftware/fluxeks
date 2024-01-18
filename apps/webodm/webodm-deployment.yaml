@@ -32,7 +32,7 @@ spec:
         - image: opendronemap/webodm_webapp:latest
           name: webodm-worker
           command: ["/bin/bash"]
-          args: ["-c", "/webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 localhost:6379 -- /webodm/wait-for-it.sh -t 0 localhost:8000 -- /webodm/worker.sh start"]
+          args: ["-c", "/webodm/wait-for-postgres.sh webodm-db /webodm/wait-for-it.sh -t 0 localhost:6379 -- /webodm/wait-for-it.sh -t 0 localhost:8000 -- /webodm/worker.sh start"]
           volumeMounts:
           - name: media-storage
             mountPath: /webodm/app/media
