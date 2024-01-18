@@ -19,7 +19,7 @@ spec:
         - image: opendronemap/webodm_db:latest
           name: webodm-db
           volumeMounts:
-          - name: db-storate
+          - name: db-storage
             mountPath: /var/lib/postgresql/data
       volumes:
       - name: db-storage
