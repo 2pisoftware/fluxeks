@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nodeodm
+  name: nodeodm
+  namespace: webodm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeodm
+  template:
+    metadata:
+      labels:
+        app: nodeodm
+    spec:
+      containers:
+        - image: opendronemap/nodeodm:latest
+          name: nodeodm
+
