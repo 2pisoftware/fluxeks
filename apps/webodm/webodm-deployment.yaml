@@ -6,7 +6,7 @@ metadata:
   name: webodm
   namespace: webodm
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: webodm
