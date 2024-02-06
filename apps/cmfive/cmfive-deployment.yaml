@@ -61,7 +61,7 @@ spec:
             memory: "256Mi"
       imagePullSecrets:
       - name: ghcr-login-secret
-    volumes:
-    - name: cmfive-db-storage
-      persistentVolumeClaim:
-        claimName: cmfive-db-pvc
+      volumes:
+      - name: cmfive-db-storage
+        persistentVolumeClaim:
+          claimName: cmfive-db-pvc
