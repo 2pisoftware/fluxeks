@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: cmfive
+    app: cmfive-db
   name: cmfive-db
   namespace: cmfive
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cmfive
+      app: cmfive-db
   template:
     metadata:
       labels:
-        app: cmfive
+        app: cmfive-db
     spec:
       containers:
       - image: mysql

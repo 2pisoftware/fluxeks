@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: cmfive
+    app: cmfive-db
   name: cmfive-db
   namespace: cmfive
 spec:
@@ -12,6 +12,6 @@ spec:
       targetPort: 3306
       name: mysql
   selector:
-    app: cmfive
+    app: cmfive-db
   type: ClusterIP
 
