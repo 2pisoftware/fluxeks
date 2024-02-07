@@ -16,7 +16,7 @@ spec:
         app: cmfive
     spec:
       containers:
-      - image: ghcr.io/2pisoftware/cmfive:dev
+      - image: registry.gitlab.com/2pisoftware/cmfive:dev
         name: cmfive
         env:
         - name: DB_HOST
@@ -60,7 +60,7 @@ spec:
             cpu: "0.5"
             memory: "256Mi"
       imagePullSecrets:
-      - name: ghcr-login-secret
+      - name: gitlab-login-secret
       volumes:
       - name: cmfive-db-storage
         persistentVolumeClaim:
