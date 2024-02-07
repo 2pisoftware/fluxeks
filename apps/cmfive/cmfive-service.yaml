@@ -5,6 +5,9 @@ metadata:
     app: cmfive
   name: cmfive
   namespace: cmfive
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
   ports:
     - port: 80
@@ -17,4 +20,6 @@ spec:
       name: https
   selector:
     app: cmfive
-  type: ClusterIP
+  type: LoadBalancer
+  loadBalancerClass: service.k8s.aws/nlb
+
