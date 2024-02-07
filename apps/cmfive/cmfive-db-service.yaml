@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cmfive
+  name: cmfive-db
+  namespace: cmfive
+spec:
+  ports:
+    - port: 3306
+      protocol: TCP
+      targetPort: 3306
+      name: mysql
+  selector:
+    app: cmfive
+  type: ClusterIP
+

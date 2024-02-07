@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cmfive
+  name: cmfive-db
+  namespace: cmfive
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cmfive
+  template:
+    metadata:
+      labels:
+        app: cmfive
+    spec:
+      containers:
+      - image: mysql
+        name: cmfive-db
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        - name: MYSQL_DATABASE
+          value: cmfive
+        - name: MYSQL_USER
+          value: cmfive
+        - name: MYSQL_PASSWORD
+          value: password
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: cmfive-db-storage
+          mountPath: /var/lib/mysql
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+          requests:
+            cpu: "0.5"
+            memory: "256Mi"
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 5
+          periodSeconds: 10
+      volumes:
+      - name: cmfive-db-storage
+        persistentVolumeClaim:
+          claimName: cmfive-db-pvc
+      

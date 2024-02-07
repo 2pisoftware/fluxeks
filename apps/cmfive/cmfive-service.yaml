@@ -14,12 +14,18 @@ spec:
       protocol: TCP
       targetPort: 80
       name: http
-    - port: 443
-      protocol: TCP
-      targetPort: 443
-      name: https
+    # - port: 443
+    #   protocol: TCP
+    #   targetPort: 443
+    #   name: https
   selector:
     app: cmfive
   type: LoadBalancer
   loadBalancerClass: service.k8s.aws/nlb
+  #require cmfive-db service
+  dependsOn:
+    - kind: Service
+      name: cmfive-db
+      namespace: cmfive
+
 
