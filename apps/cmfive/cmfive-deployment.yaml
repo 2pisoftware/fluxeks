@@ -16,7 +16,7 @@ spec:
         app: cmfive
     spec:
       containers:
-      - image: registry.gitlab.com/2pisoftware/cmfive:dev
+      - image: ghcr.io/2pisoftware/cmfive:feat-image-pipeline
         name: cmfive
         env:
         - name: DB_HOST
